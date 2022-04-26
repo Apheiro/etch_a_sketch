@@ -1,0 +1,301 @@
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+}
+
+:root {
+    --backgroundColor: rgba(255, 138, 138, 0.336);
+    --pencilColor: rgb(0, 0, 0);
+    --nightMode: white;
+    --shadow: 0px 3px 6px rgba(0, 0, 0, 0.212);
+}
+
+body {
+    background-color: #ECECEC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+}
+
+main {
+    max-width: 1285px;
+    width: 90%;
+    max-height: 649px;
+    height: 90%;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.icons {
+    width: 30px;
+    height: 30px;
+}
+
+.sketchCard {
+    background-color: white;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 900px;
+    height: 100%;
+    max-height: 650px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.sketchOption {
+    width: 268px;
+    height: 537px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.sketchOption h1 {
+    position: absolute;
+    top: 1px;
+    margin: 0px;
+    font-size: 35px;
+}
+
+.sketchOption div {
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin: 20px 0px 20px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 212px;
+    height: 50px;
+    cursor: pointer;
+    transition: transform 0.1s;
+    user-select: none;
+}
+
+.sketchOption div:hover {
+    transform: scale(1.05);
+}
+
+.sketchPaintConteiner {
+    background-color: var(--backgroundColor);
+    width: 537px;
+    height: 537px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sketchPixelConteiner {
+    background-color: #b7ff9575;
+    width: 527px;
+    height: 527px;
+    border-radius: 12px;
+
+}
+
+.settingsCard {
+    border-radius: 12px;
+    width: 100%;
+    max-width: 283px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.settingBtnCard {
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    border-radius: 12px;
+    height: 100%;
+    max-height: 418px;
+    margin-bottom: 10px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+.settingSectionRange {
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    max-width: 237px;
+    height: 66px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+}
+
+.settingSection {
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    max-width: 237px;
+    height: 50px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+
+
+.content {
+    align-items: center;
+    display: flex;
+}
+
+.checkbox {
+    display: none;
+}
+
+.checkbox_box {
+    width: 23px;
+    height: 23px;
+    border: 1px solid rgb(68, 68, 68);
+    border-radius: 5px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: border-color 0.s;
+
+}
+
+.checkbox_box::after {
+    content: '';
+    width: 17px;
+    height: 17px;
+    border-radius: 3px;
+    background: rgb(73, 73, 73);
+    transform: scale(0);
+    transition: transform 0.1s;
+
+}
+
+.checkbox:checked+.checkbox_box::after {
+    transform: scale(1);
+}
+
+.gitHub {
+    background-color: white;
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.075s;
+}
+
+.upBtn {
+    height: 23px;
+    width: 23px;
+    position: absolute;
+    bottom: 10px;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.upBtn:hover {
+    transform: scale(1.2);
+}
+
+.settingIcon {
+    width: 30px;
+    height: 30px;
+}
+
+.settingTitle {
+    margin: 5px 0px 15px 0px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.settingTitle h2 {
+    font-weight: 300;
+
+}
+
+.gitHub:hover {
+    transform: scale(1.2);
+}
+
+
+#pencilColor {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 50px;
+    height: 35px;
+    margin-left: -30px;
+    margin-right: 13px;
+    border: none;
+    padding: 0px;
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+    left: 1px;
+}
+
+#pencilColor::-webkit-color-swatch {
+    margin-top: -3px;
+    margin-bottom: -5px;
+    border-radius: 8px;
+    border: none;
+}
+
+#pencilColor::-moz-color-swatch {
+    border-radius: 8px;
+    border: none;
+}
+
+
+
+#backgroundColor {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 50px;
+    height: 35px;
+    margin-right: 13px;
+    border: none;
+    padding: 0px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#backgroundColor::-webkit-color-swatch {
+    margin-top: -3px;
+    margin-bottom: -5px;
+    border-radius: 8px;
+    border: none;
+}
+
+#backgroundColor::-moz-color-swatch {
+    border-radius: 8px;
+    border: none;
+}
