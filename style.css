@@ -8,12 +8,15 @@
 :root {
     --backgroundColor: rgba(255, 138, 138, 0.336);
     --pencilColor: rgb(0, 0, 0);
-    --nightMode: white;
+    --primaryColor: #ECECEC;
+    --secondaryColor: #FFFFFF;
+    --textColor: #000000;
+    --checkboxColor:#494949;
     --shadow: 0px 3px 6px rgba(0, 0, 0, 0.212);
 }
 
 body {
-    background-color: #ECECEC;
+    background-color: var(--primaryColor);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -38,7 +41,7 @@ main {
 }
 
 .sketchCard {
-    background-color: white;
+    background-color: var(--secondaryColor);
     border-radius: 12px;
     width: 100%;
     max-width: 900px;
@@ -104,7 +107,7 @@ main {
 
 }
 
-.settingsCard {
+.setting {
     border-radius: 12px;
     width: 100%;
     max-width: 283px;
@@ -114,12 +117,13 @@ main {
     align-items: center;
 }
 
-.settingBtnCard {
-    background-color: rgb(255, 255, 255);
+.settingMenu {
+    background-color: var(--secondaryColor);
     width: 100%;
     border-radius: 12px;
     height: 100%;
-    max-height: 418px;
+    max-height: 68px;
+   /*max-height: 418px;*/
     margin-bottom: 10px;
     align-items: center;
     display: flex;
@@ -128,28 +132,48 @@ main {
     position: relative;
 }
 
+.settingIcon {
+    width: 30px;
+    height: 30px;
+}
+
+.settingTitle {
+    margin: 5px 0px 15px 0px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    cursor: pointer;
+}
+
+.settingTitle h2 {
+    font-weight: 300;
+}
+
 .settingSectionRange {
     user-select: none;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--secondaryColor);
     width: 100%;
     max-width: 237px;
     height: 66px;
     border-radius: 12px;
     margin-bottom: 16px;
     box-shadow: var(--shadow);
+    
 }
 
 .settingSection {
     user-select: none;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--secondaryColor);
     width: 100%;
     max-width: 237px;
     height: 50px;
@@ -157,6 +181,20 @@ main {
     margin-bottom: 16px;
     box-shadow: var(--shadow);
     cursor: pointer;
+}
+
+.upBtn {
+    height: 23px;
+    width: 23px;
+    position: absolute;
+    bottom: 10px;
+    cursor: pointer;
+    transition: transform 0.1s;
+    display: none;
+}
+
+.upBtn:hover {
+    transform: scale(1.2);
 }
 
 
@@ -172,7 +210,7 @@ main {
 .checkbox_box {
     width: 23px;
     height: 23px;
-    border: 1px solid rgb(68, 68, 68);
+    border: 1px solid var(--checkboxColor);
     border-radius: 5px;
     margin-left: 10px;
     display: flex;
@@ -188,7 +226,7 @@ main {
     width: 17px;
     height: 17px;
     border-radius: 3px;
-    background: rgb(73, 73, 73);
+    background: var(--checkboxColor);
     transform: scale(0);
     transition: transform 0.1s;
 
@@ -199,7 +237,7 @@ main {
 }
 
 .gitHub {
-    background-color: white;
+    background-color: var(--secondaryColor);
     border-radius: 100%;
     height: 50px;
     width: 50px;
@@ -207,37 +245,6 @@ main {
     align-items: center;
     justify-content: center;
     transition: transform 0.075s;
-}
-
-.upBtn {
-    height: 23px;
-    width: 23px;
-    position: absolute;
-    bottom: 10px;
-    cursor: pointer;
-    transition: transform 0.1s;
-}
-
-.upBtn:hover {
-    transform: scale(1.2);
-}
-
-.settingIcon {
-    width: 30px;
-    height: 30px;
-}
-
-.settingTitle {
-    margin: 5px 0px 15px 0px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.settingTitle h2 {
-    font-weight: 300;
-
 }
 
 .gitHub:hover {
@@ -298,4 +305,35 @@ main {
 #backgroundColor::-moz-color-swatch {
     border-radius: 8px;
     border: none;
+}
+
+
+
+.outAnimation{
+    animation: fadeOut;
+    animation-duration: 0.75s;
+}
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+        transform: translateY(-10px);
+    }to{
+        opacity: 1;
+        transform: translateY(0px);  
+    }
+    
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
 }
