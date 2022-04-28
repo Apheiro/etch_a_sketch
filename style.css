@@ -3,16 +3,29 @@
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
+    color: var(--textColor);
 }
 
+
+
 :root {
-    --backgroundColor: rgba(255, 138, 138, 0.336);
     --pencilColor: rgb(0, 0, 0);
     --primaryColor: #ECECEC;
     --secondaryColor: #FFFFFF;
     --textColor: #000000;
     --checkboxColor:#494949;
     --shadow: 0px 3px 6px rgba(0, 0, 0, 0.212);
+}
+
+.darkMode {
+    --primaryColor: #320A28;
+    --secondaryColor: #511730;
+    --textColor: #E0D68A;
+    --checkboxColor: #E0D68A;
+}
+
+.darkModeTransition {
+    transition: all 0.5s !important;
 }
 
 body {
@@ -88,8 +101,8 @@ main {
     transform: scale(1.05);
 }
 
-.sketchPaintConteiner {
-    background-color: var(--backgroundColor);
+.sketchPaintContainer {
+    background-color: white;
     width: 537px;
     height: 537px;
     border-radius: 12px;
@@ -99,12 +112,27 @@ main {
     justify-content: center;
 }
 
-.sketchPixelConteiner {
-    background-color: #b7ff9575;
-    width: 527px;
-    height: 527px;
+.sketchPixelContainer{
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
     border-radius: 12px;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    
+}
 
+.pixel {
+    border: transparent solid 1px;
+    user-select: none;
+}
+
+.grid .pixel{
+    border: var(--checkboxColor) solid 1px;
+}
+
+.pixel:hover{
+    background-color: rgb(255, 193, 193);
 }
 
 .setting {
@@ -123,13 +151,33 @@ main {
     border-radius: 12px;
     height: 100%;
     max-height: 68px;
-   /*max-height: 418px;*/
     margin-bottom: 10px;
     align-items: center;
     display: flex;
     flex-direction: column;
     box-shadow: var(--shadow);
     position: relative;
+}
+
+.settingMenuTransition{
+    transition: all 1s cubic-bezier(0.7, -0.31, 0.02, 1.38) 0s;
+}
+
+.settingMenuOpen{
+    max-height: 418px;
+    
+}
+
+.settingMenuOpenOption {
+    display: flex !important;
+    animation: fadeIn;
+    animation-duration: 0.75s;
+}
+
+.settingMenuCloseOption {
+    display: flex !important;
+    animation: fadeOut;
+    animation-duration: 0.75s;
 }
 
 .settingIcon {
@@ -151,12 +199,12 @@ main {
     font-weight: 300;
 }
 
-.settingSectionRange {
+.settingMenuOptionRange {
     user-select: none;
     display: none;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     background-color: var(--secondaryColor);
     width: 100%;
     max-width: 237px;
@@ -164,10 +212,16 @@ main {
     border-radius: 12px;
     margin-bottom: 16px;
     box-shadow: var(--shadow);
+    padding: 0px 15px 0px 15px;
     
 }
 
-.settingSection {
+/* .settingMenuOptionRange div{
+    width: 100%;
+    max-width: 90%;
+} */
+
+.settingMenuOption {
     user-select: none;
     display: none;
     flex-direction: column;
@@ -244,7 +298,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.075s;
+    transition: transform 0.275s;
 }
 
 .gitHub:hover {
@@ -307,11 +361,60 @@ main {
     border: none;
 }
 
+#resolutionGridInput{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 20px;
+    background: transparent;
+    background-image:linear-gradient(var(--checkboxColor), var(--checkboxColor));
+    background-size: 25% 100%;
+    background-repeat: no-repeat;
+}
+
+#resolutionGridText{
+    width: 100%;
+}
+
+#resolutionGridInput::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    background-color: var(--secondaryColor);
+    border: var(--checkboxColor) solid;
+    height: 25px;
+    width: 25px;
+    border-radius: 100%;
+    border-width: 2px;
+    margin-top: -9px;
+    transition: background-color 0.6s;
+}
+
+#resolutionGridInput::-webkit-slider-runnable-track{
+    -webkit-appearance: none;
+    border: var(--checkboxColor) solid;
+    height: 10px;
+    border-width: 1px;
+    border-radius: 10px;
+}
 
 
-.outAnimation{
-    animation: fadeOut;
-    animation-duration: 0.75s;
+#resolutionGridInput::-moz-range-thumb {
+    -moz-appearance: none;
+    background-color: var(--secondaryColor);
+    border: var(--checkboxColor) solid;
+    height: 22px;
+    width: 22px;
+    border-radius:  100%;
+    border-width: 2px;
+    transition: all 2s;
+}
+
+#resolutionGridInput::-moz-range-track{
+    -moz-appearance: none;
+    border: var(--checkboxColor) solid;
+    height: 7px;
+    border-width: 1px;
+    border-radius: 10px;
 }
 
 @keyframes fadeIn {
