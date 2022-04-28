@@ -46,6 +46,7 @@ main {
     align-items: center;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .icons {
@@ -110,24 +111,28 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 12px;
+    overflow: hidden;
 }
 
 .sketchPixelContainer{
     background-color: transparent;
     width: 100%;
     height: 100%;
-    border-radius: 12px;
     display: grid;
     grid-template-columns: repeat(16, 1fr);
-    
 }
 
 .pixel {
+    border-style:outset ;
     border: transparent solid 1px;
     user-select: none;
 }
 
-.grid .pixel{
+.sketchPaintContainer.grid {
+    border: var(--checkboxColor) solid 1px;
+}
+.sketchPixelContainer.grid .pixel{
     border: var(--checkboxColor) solid 1px;
 }
 
@@ -215,11 +220,6 @@ main {
     padding: 0px 15px 0px 15px;
     
 }
-
-/* .settingMenuOptionRange div{
-    width: 100%;
-    max-width: 90%;
-} */
 
 .settingMenuOption {
     user-select: none;
@@ -439,4 +439,156 @@ main {
         transform: translateY(-10px);
     }
 
+}
+
+@media (max-width: 1315px) {
+    main {
+        max-width: 1285px;
+        width: 90%;
+        max-height: 900px;
+        height: 90%;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .setting {
+        border-radius: 12px;
+        width: 100%;
+        max-width: 900px;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .settingTitle {
+        margin: 0px 0px 0px 0px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+        cursor: pointer;
+    }
+    
+    .settingTitle h2 {
+        font-weight: 300;
+    }
+    
+    .settingMenu {
+        background-color: var(--secondaryColor);
+        width: 100%;
+        max-width: 900px;
+        border-radius: 12px;
+        height: 100%;
+        max-height: 68px;
+        margin:10px 0px 10px 0px;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        box-shadow: var(--shadow);
+        position: relative;
+    }
+
+    .options {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 90%;
+    }
+    .options div{
+        margin: 5px;
+    }
+    .options label{
+        margin: 5px;
+    }
+
+    .settingMenuTransition {
+        transition: all 1s cubic-bezier(0.7, -0.31, 0.02, 1.38) 0s;
+    }
+    
+    .settingMenuOpen {
+        max-height: 238px;
+    
+    }
+    
+    .settingMenuOpenOption {
+        display: flex !important;
+        animation: fadeIn;
+        animation-duration: 0.75s;
+    }
+    
+    .settingMenuCloseOption {
+        display: flex !important;
+        animation: fadeOut;
+        animation-duration: 0.75s;
+    }
+}
+
+@media (max-width:895px) {
+    .sketchCard {
+        background-color: var(--secondaryColor);
+        border-radius: 12px;
+        width: 100%;
+        max-width: 900px;
+        height: 100%;
+        max-height: 750px;
+        box-shadow: var(--shadow);
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    
+    .sketchOption {
+        width: 100%;
+        height: 120px;
+        display: flex;
+        flex-direction: unset;
+        justify-content: space-evenly;
+        align-items: center;
+        position: relative;
+    }
+    
+    .sketchOption h1 {
+        position: absolute;
+        top: 1px;
+        margin: 0px;
+        font-size: 35px;
+    }
+    
+    .sketchOption div {
+        
+        bottom: 1px;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        margin: 70px 0px 0px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 212px;
+        height: 50px;
+        cursor: pointer;
+        transition: transform 0.1s;
+        user-select: none;
+    }
+    
+    .sketchOption div:hover {
+        transform: scale(1.05);
+    }
+    
+    .sketchPaintContainer {
+        background-color: white;
+        width: 537px;
+        height: 537px;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        overflow: hidden;
+    }
 }

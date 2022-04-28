@@ -117,7 +117,8 @@ function changeBackground() {
 }
 
 function enableGrid() {
-     sketchContainer.classList.toggle('grid')
+    sketchContainer.classList.toggle('grid');
+    backgroundColor.classList.toggle('grid');
 }
 
 

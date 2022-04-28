@@ -66,33 +66,36 @@
                     <h2>Settings</h2>
                 </div>
 
-                <div id="resolutionGrid" class="settingMenuOptionRange">
+                <div class = "options">
+                    <div id="resolutionGrid" class="settingMenuOptionRange">
                     
-                    <div id="resolutionGridText">Resolution grid: 16x16</div>
-                    <input type="range" value="16" min="1" max="64" name="resolutionGridInput" id="resolutionGridInput">
+                        <div id="resolutionGridText">Resolution grid: 16x16</div>
+                        <input type="range" value="16" min="1" max="64" name="resolutionGridInput" id="resolutionGridInput">
                     
+                    </div>
+
+                    <label id="visibleGrid" class="settingMenuOption">
+                        <div class="content">
+                            Visible grid <input type="checkbox" name="visible Grid" id="visibleGridCheckBox"
+                                class="checkbox"><span class="checkbox_box"></span>
+                        </div>
+
+                    </label>
+
+                    <label id="nightMode" class="settingMenuOption">
+                        <div class="content" >
+                            Night mode <input type="checkbox" name="night Mode" id="nightModeCheckBox" 
+                                class="checkbox"><span class="checkbox_box"></span>
+                        </div>
+                    </label>
+
+                    <label id="background" class="settingMenuOption">
+                        <div class="content">
+                            <input type="color" value="#ECECEC" name="backgroundColor" id="backgroundColor"> Background color
+                        </div>
+                    </label>
                 </div>
 
-                <label id="visibleGrid" class="settingMenuOption">
-                    <div class="content">
-                        Visible grid <input type="checkbox" name="visible Grid" id="visibleGridCheckBox"
-                            class="checkbox"><span class="checkbox_box"></span>
-                    </div>
-
-                </label>
-
-                <label id="nightMode" class="settingMenuOption">
-                    <div class="content" >
-                        Night mode <input type="checkbox" name="night Mode" id="nightModeCheckBox" 
-                            class="checkbox"><span class="checkbox_box"></span>
-                    </div>
-                </label>
-
-                <label id="background" class="settingMenuOption">
-                    <div class="content">
-                        <input type="color" value="#ECECEC" name="backgroundColor" id="backgroundColor"> Background color
-                    </div>
-                </label>
 
                 <div id="upBtn" class="upBtn">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
