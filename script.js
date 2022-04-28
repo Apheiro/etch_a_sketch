@@ -1,4 +1,3 @@
-// settings
 const settingBtn = document.querySelector('#settingsBtn');
 const settingMenu = document.querySelector('#settingMenu')
 const resolutionBtn = document.querySelector('#resolutionGrid');
@@ -13,50 +12,63 @@ const gitHub = document.querySelector('#gitHub');
 const rangeInput = document.querySelector('#resolutionGridInput');
 const resolutionGrid = document.querySelector('#resolutionGridText');
 const visibleGridCheck = document.querySelector('#visibleGridCheckBox')
-// settings
-// sketch
 const backgroundColor = document.querySelector('#sketchPaintContainer');
 const backgroundColorInput = document.querySelector('#backgroundColor');
 const sketchContainer = document.querySelector('#sketchPixelContainer');
-// sketch
+const pencilColor = document.querySelector('#pencilColor');
+const clear = document.querySelector('#clear');
+const ereaser = document.querySelector('#ereaser');
 
-function createGrid() {
-    for (let i = 0; i < 256; i++) {
-    const pixel = document.createElement('div');
-    pixel.classList.add('pixel');
-    sketchContainer.appendChild(pixel);
+for (let i = 0; i < 256; i++) {
+const pixel = document.createElement('div');
+pixel.classList.add('pixel');
+sketchContainer.appendChild(pixel);
 }
-}
-createGrid()
+
 let pixels = document.querySelectorAll('.pixel')
+let isDrawing = false;
 
-// settings
+function Draw() {
+    sketchContainer.addEventListener('mousedown', (e) => {
+        e.target.style.backgroundColor = `${pencilColor.value}`;
+        isDrawing = true
+    });
+    sketchContainer.addEventListener('mouseup', () => {isDrawing == true ? isDrawing = false : '';});
+    sketchContainer.addEventListener('mouseover', (e) => {isDrawing == true ? e.target.style.backgroundColor = `${pencilColor.value}` : ''});
+}
+
+function Erease() {
+    sketchContainer.addEventListener('mousedown', (e) => {
+        e.target.style.backgroundColor = `transparent`;
+        isDrawing = true
+    });
+    sketchContainer.addEventListener('mouseup', () => {isDrawing == true ? isDrawing = false : '';});
+    sketchContainer.addEventListener('mouseover', (e) => {isDrawing == true ? e.target.style.backgroundColor = `transparent` : ''}); 
+}
 
 function handleInputChange() {
     resolutionGrid.textContent = `Resolution grid: ${rangeInput.value}x${rangeInput.value}`;
-    console.log(this.value)
     const min = this.min;
     const max = this.max;
     const val = this.value;
     this.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%';
-
-  console.log(sketchPixelCountNumber)
-    
 }
 
 function resolutionGridChange() {
     const val = this.value;
     const valC = val * val;
-    pixels = document.querySelectorAll('.pixel');
-    const sketchPixelCountNumber = pixels.length;
+    const pixelCreate = document.querySelectorAll('.pixel');
+    const sketchPixelCountNumber = pixelCreate.length;
     sketchContainer.style = `grid-template-columns: repeat(${val}, 1fr);`;
-    if (sketchPixelCountNumber > valC || sketchPixelCountNumber < valC) { pixels.forEach(pixel => sketchContainer.removeChild(pixel)); };
-    
+    if (sketchPixelCountNumber > valC || sketchPixelCountNumber < valC) {pixelCreate.forEach(pixel => sketchContainer.removeChild(pixel));};
     for (let i = 0; i < valC; i++) {
         const pixel = document.createElement('div');
         pixel.classList.add('pixel');
         sketchContainer.appendChild(pixel);
     }
+    setTimeout(() => {
+        pixels = document.querySelectorAll('.pixel');
+    }, 1);
 }
 
 function nightMode() {
@@ -73,7 +85,6 @@ function nightMode() {
         sketch.classList.remove('darkModeTransition');
         gitHub.classList.remove('darkModeTransition');
     }, 500);
-
 }
 
 function expandSetting(e) {
@@ -109,11 +120,14 @@ function enableGrid() {
      sketchContainer.classList.toggle('grid')
 }
 
+
 darkMode.addEventListener('input', nightMode);
 settingBtn.addEventListener('click', expandSetting);
 upBtn.addEventListener('click', contractSetting);
 rangeInput.addEventListener('input', handleInputChange);
 rangeInput.addEventListener('change', resolutionGridChange);
-backgroundColorInput.addEventListener('input', changeBackground)
-visibleGridCheck.addEventListener('input', enableGrid)
-// settings
+backgroundColorInput.addEventListener('input', changeBackground);
+visibleGridCheck.addEventListener('input', enableGrid);
+clear.addEventListener('click', () => pixels.forEach(pixel => pixel.style.backgroundColor = 'transparent'));
+pencilColor.addEventListener('click', Draw);
+ereaser.addEventListener('click', Erease);

@@ -132,7 +132,7 @@ main {
 }
 
 .pixel:hover{
-    background-color: rgb(255, 193, 193);
+    background-color: rgba(0, 0, 0, 0.281);
 }
 
 .setting {
