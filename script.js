@@ -28,7 +28,7 @@ sketchContainer.appendChild(pixel);
 let pixels = document.querySelectorAll('.pixel')
 let isDrawing = false;
 
-function Draw() {
+function draw() {
     sketchContainer.addEventListener('mousedown', (e) => {
         e.target.style.backgroundColor = `${pencilColor.value}`;
         isDrawing = true
@@ -37,7 +37,7 @@ function Draw() {
     sketchContainer.addEventListener('mouseover', (e) => {isDrawing == true ? e.target.style.backgroundColor = `${pencilColor.value}` : ''});
 }
 
-function Erease() {
+function erease() {
     sketchContainer.addEventListener('mousedown', (e) => {
         e.target.style.backgroundColor = `transparent`;
         isDrawing = true
@@ -130,5 +130,5 @@ rangeInput.addEventListener('change', resolutionGridChange);
 backgroundColorInput.addEventListener('input', changeBackground);
 visibleGridCheck.addEventListener('input', enableGrid);
 clear.addEventListener('click', () => pixels.forEach(pixel => pixel.style.backgroundColor = 'transparent'));
-pencilColor.addEventListener('click', Draw);
-ereaser.addEventListener('click', Erease);
+pencilColor.addEventListener('click', draw);
+ereaser.addEventListener('click', erease);
