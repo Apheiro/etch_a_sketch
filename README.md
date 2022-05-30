@@ -9,3 +9,7 @@ Acquired knowledge:</br>
 ● Different uses of EventListeners and Loops.</br>
 ● Uses of variables in CSS.</br>
 ● How to style different inputs.
+
+Images preview:</br>
+![](./Preview/Screen%20Shot%202022-05-30%20at%2006.16.29.png)
+![](./Preview/Screen%20Shot%202022-05-30%20at%2006.18.30.png)
