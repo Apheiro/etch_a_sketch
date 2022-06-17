@@ -18,7 +18,7 @@ const sketchContainer = document.querySelector('#sketchPixelContainer');
 const pencilColor = document.querySelector('#pencilColor');
 const clear = document.querySelector('#clear');
 const ereaser = document.querySelector('#ereaser');
-
+const iconsBtns = document.querySelectorAll('.iconsBtns');
 for (let i = 0; i < 256; i++) {
 const pixel = document.createElement('div');
 pixel.classList.add('pixel');
@@ -73,18 +73,22 @@ function resolutionGridChange() {
 
 function nightMode() {
     document.body.classList.toggle('darkMode');
+    iconsBtns.forEach(button => button.classList.toggle('darckIconMode'));
     document.body.classList.add('darkModeTransition');
     settingMenu.classList.add('darkModeTransition');
     settingOpt.forEach(button => button.classList.add('darkModeTransition'));
     sketch.classList.add('darkModeTransition');
     gitHub.classList.add('darkModeTransition');
+    iconsBtns.forEach(button => button.classList.add('darkModeTransition'));
     setTimeout(() => {
         document.body.classList.remove('darkModeTransition');
+        iconsBtns.forEach(button => button.classList.remove('darkModeTransition'));
         settingMenu.classList.remove('darkModeTransition');
         settingOpt.forEach(button => button.classList.remove('darkModeTransition'));
         sketch.classList.remove('darkModeTransition');
         gitHub.classList.remove('darkModeTransition');
     }, 500);
+
 }
 
 function expandSetting(e) {
