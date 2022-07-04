@@ -1,15 +1,31 @@
-# Etch a sketch \(ಥ \_ ಥ\)
+#
 
-This project was a challenge for me, I used everything I knew and I had to review old projects, </br>
-classes and it took me 2 days more than I had planned.
+<h1 align="center">Etch a sketch</h1>
 
-Acquired knowledge:</br>
-● More event types.</br>
-● Better understanding of loops.</br>
-● Different uses of EventListeners and Loops.</br>
-● Uses of variables in CSS.</br>
-● How to style different inputs.
+![](./Preview/thumbnail.png)
 
-Images preview:</br>
-![](./Preview/Screen%20Shot%202022-05-30%20at%2006.16.29.png)
-![](./Preview/Screen%20Shot%202022-05-30%20at%2006.18.30.png)
+<p align="center">
+  Etch a sketch for <a href="https://www.theodinproject.com/">The Odin Project</a>
+</p>
+
+## Demo
+
+👁️ [Live Demo](https://apheiro.github.io/etch_a_sketch/)
+
+## Built with
+
+- JavaScript
+- Css
+- Html
+
+## Features
+
+- Responsive design.
+- Clean desing.
+- smooth animations.
+
+## Screenshots
+
+![](./Preview/presentation.png)
+![](./Preview/Screenshot.png)
+![](./Preview/Screenshot1.png)
